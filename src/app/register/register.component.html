@@ -1,0 +1,27 @@
+<div id="card">
+    <div id="card-content">
+      <div id="card-title">
+        <h2>SIGNUP</h2>
+        <div class="underline-title"></div>
+      </div>
+      <form name="submitdata" #submitdata="ngForm" (ngSubmit)="register(submitdata.value); submitdata.resetForm()">
+        
+        <label for="user-email" style="padding-top:13px">
+            &nbsp;UserName
+          </label>
+          
+          <input class="form-content" type="text" name="username" placeholder="Enter UserName..." #username="ngModel" ngModel>
+        
+        <div class="form-border"></div>
+        <label for="user-password" style="padding-top:22px">&nbsp;Password
+          </label>
+          <input class="form-content" type="password" name="password" placeholder="Enter Password..." #password="ngModel" ngModel>
+        <div class="form-border"></div>
+        
+    
+        <button id="submit-btn" type="submit">Signup</button>
+
+    
+      </form>
+    </div>
+  </div>

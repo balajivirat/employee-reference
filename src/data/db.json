@@ -1,0 +1,7 @@
+{
+    "employeedeteils": [
+      { "name": "balaji", "empid": "1", "jobtitle": "webdeveloper", "description": "web developing", "email": "balajivirat@gmail.com" },
+      { "name": "deva", "empid": "2", "jobtitle": "webdeveloper", "description": "web developing", "email": "balajivirat@gmail.com" }
+    ]
+   
+  }

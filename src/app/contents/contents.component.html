@@ -1,0 +1,140 @@
+<div class="container">
+    <!-- Trigger the modal with a button -->
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal1">Press Here To Create a Employee List</button>
+  
+    <!-- Modal -->
+    <div class="modal fade" id="myModal1" role="dialog">
+      <div class="modal-dialog">
+      
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            
+          </div>
+          <div class="modal-body">
+            <div>
+              
+              <form class="form" name="submitdata" #submitdata="ngForm" (ngSubmit)="subfunc(submitdata.value); submitdata.resetForm()">
+                
+                <input type="text" name="name" placeholder="Enter your Name..." #name="ngModel" ngModel>
+                
+                <input type="text" name="empid" placeholder="Enter Emp ID..." #empid="ngModel" ngModel>
+                
+                <input type="text" name="jobtitle" placeholder="Enter your JobTitle..." #jobtitle="ngModel" ngModel>
+                
+                <input type="text" name="description" placeholder="Enter your Description..." #description="ngModel" ngModel>
+                
+                <input type="email" name="email" placeholder="Enter your Email ID..." #email="ngModel" ngModel>
+                <div>
+                  <button class="btn" type="submit">Submit</button>
+                </div>
+              </form>
+            </div>
+            
+          </div>
+          <div class="modal-footer">
+
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+  </div>
+  
+  <div style="display: flex; flex-wrap: wrap !important;" *ngFor="let save of store">
+    <div id="card">
+      <div id="card-content">
+        <div id="card-title">
+          <h6><b>EMPLOYEE DETAILS</b></h6>
+          <div class="underline-title"></div>
+        </div>
+          <div class="contents">
+            <h6 class="padding"><span>Name</span> : {{save.name}}</h6>
+            <h6 class="padding"><span>Emp Id</span> : {{save.empid}}</h6>
+            <h6 class="padding"><span>Job Title</span> : {{save.jobtitle}}</h6>
+            <h6 class="padding"><span>Description</span> : {{save.description}}</h6>
+            <h6 class="padding"><SPan>Email</SPan> : {{save.email}}</h6>
+          </div>
+          <button class="button" (click)="edit(save.empid)"><h1><b>Edit</b></h1></button>
+          <button class="margin" (click)="delete(save.empid)"><h1><b>Delete</b></h1></button>
+        
+        
+      </div>
+    </div>
+  </div>
+  
+  <!-- <div class="table">
+    <table id="customers">
+      <tr>
+        <th>Name</th>
+        <th>Emp ID</th>
+        <th>Job Title</th>
+        <th>Description</th>
+        <th>Email</th>
+      </tr>
+      <tr *ngFor="let save of store">
+        <td>{{save.name}}</td>
+        <td>{{save.empid}}</td>
+        <td>{{save.jobtitle}}</td>
+        <td>{{save.description}}</td>
+        <td>{{save.email}}</td>
+        <td><button (click)="edit(save.empid)">Edit</button></td>
+        <td><button (click)="delete(save.empid)">Delete</button></td>
+      </tr>
+    
+    </table>
+    
+  </div> -->
+  <div class="container">
+  
+  
+    <!-- The Modal -->
+    <div class="modal" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+        
+          <!-- Modal Header -->
+          <div class="modal-header">
+            
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          
+          <!-- Modal body -->
+          <div class="modal-body">
+            <div>
+          
+              <form class="form" name="updatedata" #updatedata="ngForm" (ngSubmit)="update(updatedata.value);">
+                <div *ngFor="let store of filterdata">
+                
+                <input type="text" name="name" placeholder="Enter your Name..." [(ngModel)]='store.name'><br>
+                
+                <input type="text" name="empid" placeholder="Enter Emp ID..."  [(ngModel)]='store.empid'><br>
+                
+                <input type="text" name="jobtitle" placeholder="Enter your JobTitle..."  [(ngModel)]='store.jobtitle'><br>
+                
+                <input type="text" name="description" placeholder="Enter your Description..."  [(ngModel)]='store.description'><br>
+                
+                <input type="email" name="email" placeholder="Enter your Email ID..."  [(ngModel)]='store.email'><br>
+                </div>
+                <div>
+                  <button class="buttonupdate" type="submit">Submit</button>
+                  <!-- <button style="margin-right: 43%;" type="button" class="close" data-dismiss="modal">Submit</button> -->
+                </div>
+              </form>
+            </div>
+          </div>
+          
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  

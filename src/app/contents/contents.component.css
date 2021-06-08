@@ -1,0 +1,205 @@
+.form{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+
+}
+.btn{
+    width: fit-content;
+    border-style: unset;
+    border-radius: 13px;
+    color: #0b87a2;
+    background: transparent;
+    margin-top: 7%;
+    margin-left: 32%;
+}
+input 				{
+  font-size:18px;
+  padding:10px 10px 10px 5px;
+  display:block;
+  width:300px;
+  border:none;
+  border-bottom:1px solid #757575;
+}
+input:focus 		{ outline:none; }
+
+/* LABEL ======================================= */
+label 				 {
+  color:#999; 
+  font-size:18px;
+  font-weight:normal;
+  position:absolute;
+  pointer-events:none;
+  left:5px;
+  top:10px;
+  transition:0.2s ease all; 
+  -moz-transition:0.2s ease all; 
+  -webkit-transition:0.2s ease all;
+}
+
+/* active state */
+input:focus ~ label, input:valid ~ label 		{
+  top:-20px;
+  font-size:14px;
+  color:#5264AE;
+}
+/* label{
+    margin-left: 5%;
+} */
+/* input{
+    width: 90%;
+    border-radius: 10px;
+    height: 30px;
+    margin-left: 5%;
+    margin-bottom: 20px;
+} */
+.heading{
+    display: flex;
+    justify-content: center;
+}
+#customers {
+    border-collapse: collapse;
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 5%;
+  }
+  
+  #customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #customers tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #customers tr:hover {background-color: #ddd;}
+  
+  #customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4ea8c4;
+    color: white;
+  }
+  .table{
+      margin-top: 2%;
+      margin-bottom: 5%;
+  }
+  a {
+    text-decoration: none;
+  }
+  body {
+    background: -webkit-linear-gradient(bottom, #2dbd6e, #a6f77b);
+    background-repeat: no-repeat;
+  }
+  label {
+    font-family: "Raleway", sans-serif;
+    font-size: 11pt;
+  }
+  #forgot-pass {
+    color: #2dbd6e;
+    font-family: "Raleway", sans-serif;
+    font-size: 10pt;
+    margin-top: 3px;
+    text-align: right;
+  }
+  #card {
+    background: #fbfbfb;
+    border-radius: 8px;
+    box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.65);
+    height: 450px;
+    margin: 6rem auto 8.1rem auto;
+    width: 329px;
+    background-image: url(/./assets/images/ironman.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: blanchedalmond;
+  }
+  #card-content {
+    padding: 12px 44px;
+  }
+  #card-title {
+    font-family: "Raleway Thin", sans-serif;
+    letter-spacing: 4px;
+    padding-bottom: 23px;
+    padding-top: 13px;
+    text-align: center;
+  }
+  #signup {
+    color: #2dbd6e;
+    font-family: "Raleway", sans-serif;
+    font-size: 10pt;
+    margin-top: 16px;
+    text-align: center;
+  }
+  #submit-btn {
+    background: -webkit-linear-gradient(right, #a6f77b, #2dbd6e);
+    border: none;
+    border-radius: 21px;
+    box-shadow: 0px 1px 8px #24c64f;
+    cursor: pointer;
+    color: white;
+    font-family: "Raleway SemiBold", sans-serif;
+    height: 42.3px;
+    margin: 0 auto;
+    margin-top: 38px;
+    transition: 0.25s;
+    width: 153px;
+  }
+  #submit-btn:hover {
+    box-shadow: 0px 1px 18px #24c64f;
+  }
+  .form {
+    align-items: left;
+    display: flex;
+    flex-direction: column;
+  }
+  .form-border {
+    background: -webkit-linear-gradient(right, #a6f77b, #2ec06f);
+    height: 1px;
+    width: 100%;
+  }
+  .form-content {
+    background: #fbfbfb;
+    border: none;
+    outline: none;
+    padding-top: 14px;
+  }
+  .underline-title {
+    background: -webkit-linear-gradient(right, #a6f77b, #2ec06f);
+    height: 2px;
+    margin: -1.1rem auto 0 auto;
+    width: 180px;
+    margin-top: 0px;
+  }
+  .contents{
+    display: flex;
+    flex-direction: column;
+    color: #dee8de;
+  }
+  .padding{
+    padding-top: 18px;
+  }
+  .button{
+    border-style: unset;
+    border-radius: 13px;
+    color: #63b563a6;
+    background: transparent;
+    margin-top: 26%;
+
+  }
+  .margin{
+    border-style: unset;
+    border-radius: 13px;
+    color: #63b563a6;
+    background: transparent;
+    margin-left: 9%;
+  }
+  span{
+    color: #949192;
+  }
+  form{
+    margin-left: 10%;
+  }
