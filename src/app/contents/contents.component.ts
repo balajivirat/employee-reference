@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
-declare var $ : any;
+declare var $: any;
 @Component({
   selector: 'app-contents',
   templateUrl: './contents.component.html',
   styleUrls: ['./contents.component.css']
 })
 export class ContentsComponent implements OnInit {
-  storage:any = [];
+  storage: any = [];
   object: any;
   title = 'employeedetails';
-  store: any=[];
+  store: any = [];
   data: any;
   filterdata: any;
   getter: any;
@@ -21,16 +21,16 @@ export class ContentsComponent implements OnInit {
     this.userservice.getcontent().subscribe((res => {
       this.storage = res;
       console.log('res.................', res);
-      
+
     }))
 
     // this.store =JSON.parse( localStorage.getItem('employeedetails')!);
     // console.log(this.storage);
     // this.storage= [];
   }
-  subfunc(data: any){
+  subfunc(data: any) {
     console.log(data);
-    this.userservice.contentgetter(data).subscribe((res => {
+    this.userservice.postContent(data).subscribe((res => {
 
     }))
     this.ngOnInit();
@@ -48,52 +48,52 @@ export class ContentsComponent implements OnInit {
     // this.storage.push(this.object)
     // localStorage.setItem('employeedetails', JSON.stringify(this.storage))
     // this.ngOnInit();
-  // }
-}
-delete(saving: any){
-  console.log(saving);
-  this.userservice.deletecontent(saving).subscribe((res => {}))
-  this.ngOnInit();
-  // for(let i=0; i<this.store.length; i++){
-  //   // console.log( this.store[i].empid);
-  //   if (saving == this.store[i].empid) {
-  //     this.store.splice(i, 1)
-  //     localStorage.setItem('employeedetails', JSON.stringify(this.storage))
-  //   }
-    
-  // } 
-}
+    // }
+  }
+  delete(saving: any) {
+    console.log(saving);
+    this.userservice.deletecontent(saving).subscribe((res => { }))
+    this.ngOnInit();
+    // for(let i=0; i<this.store.length; i++){
+    //   // console.log( this.store[i].empid);
+    //   if (saving == this.store[i].empid) {
+    //     this.store.splice(i, 1)
+    //     localStorage.setItem('employeedetails', JSON.stringify(this.storage))
+    //   }
 
-edit(value : any){
-  this.getter = value;
-  console.log(this.getter);
-  $("#myModal").modal('show');
-  for(let i=0; i<this.storage.length; i++){
-    if (this.getter == this.storage[i].empid) {
-      this.filterdata = [this.storage[i]];
-      console.log(this.storage[i]);
-      
-      this.ind = i;
-      console.log(this.ind);
-    
+    // } 
+  }
+
+  edit(value: any) {
+    this.getter = value;
+    console.log(this.getter);
+    $("#myModal").modal('show');
+    for (let i = 0; i < this.storage.length; i++) {
+      if (this.getter == this.storage[i].empid) {
+        this.filterdata = [this.storage[i]];
+        console.log(this.storage[i]);
+
+        this.ind = i;
+        console.log(this.ind);
+
+      }
+      console.log('edit............', this.filterdata);
+
     }
-    console.log('edit............', this.filterdata);
-    
-  } 
 
-}
-update(){
-  this.filterdata.push(this.getter)
-  console.log('store.........', this.filterdata);
-  
-  $("#myModal").modal('hide');
-  this.userservice.editcontent(this.filterdata).subscribe((res => {}))
-  this.ngOnInit();
+  }
+  update() {
+    this.filterdata.push(this.getter)
+    console.log('store.........', this.filterdata);
 
-//   this.store.splice(this.ind,1,data)
-//   localStorage.setItem('employeedetails', JSON.stringify(this.store)) 
-//  this.ngOnInit();  
-}
+    $("#myModal").modal('hide');
+    this.userservice.editcontent(this.filterdata).subscribe((res => { }))
+    this.ngOnInit();
+
+    //   this.store.splice(this.ind,1,data)
+    //   localStorage.setItem('employeedetails', JSON.stringify(this.store)) 
+    //  this.ngOnInit();  
+  }
 
 
 }

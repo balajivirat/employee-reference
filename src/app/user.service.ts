@@ -12,7 +12,7 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   //This is to get value from the Componet to service
-  gettingvalue(value: any) {
+  signupPost(value: any) {
     console.log('service', value);
     return this.http.post("https://mysterious-castle-20545.herokuapp.com/user", value)
     //  return this.http.post("http://localhost:3000/user",value)
@@ -28,14 +28,8 @@ export class UserService {
       .http.post(`https://mysterious-castle-20545.herokuapp.com/gets`, value)
     // .http.post(`http://localhost:3000/gets`,value)
   }
-  // getusers() {    
-  //   return this
-  //     .http.get("http://localhost:3000/get").pipe(map(res => {
-  //       console.log(res);
-  //     }
-  //     ))
-  // }
-  contentgetter(value: any) {
+
+  postContent(value: any) {
     return this.http.post("https://mysterious-castle-20545.herokuapp.com/content", value)
     // return this.http.post("http://localhost:3000/content",value)
   }
@@ -44,14 +38,7 @@ export class UserService {
     // return this.http.get(`http://localhost:3000/content`).pipe(map(res => res))
   }
 
-  // deletecontent(id: any){
-  //   console.log('delete..............', id);
-  // return this.http.post("http://localhost:3000/delete",value)
-  //   var id = id;
-  //   return this
-  //     .http
-  //     .delete("http://localhost:3000/delete/:"+id);
-  // }
+
   deletecontent(id: any) {
     var id = id;
     return this

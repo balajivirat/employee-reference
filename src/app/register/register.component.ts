@@ -24,7 +24,7 @@ export class RegisterComponent implements OnInit {
       swal("Good job!", "You Signed In!", "success");
 
 
-      this.userservice.gettingvalue(value).subscribe((res => {
+      this.userservice.signupPost(value).subscribe((res => {
         console.log(res);
 
       }))

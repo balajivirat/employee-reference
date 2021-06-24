@@ -27,7 +27,6 @@ export class LoginComponent implements OnInit {
       swal("Enter The Username and Password")
     } else {
       this.userservice.postusers(values).subscribe((res => {
-        console.log('duyasdgcuysdiusygdviusgiuyvgsuiyvg', res);
 
         this.setofobject = res;
 
