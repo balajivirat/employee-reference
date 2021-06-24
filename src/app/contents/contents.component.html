@@ -44,7 +44,7 @@
     
   </div>
   
-  <div style="display: flex; flex-wrap: wrap !important;" *ngFor="let save of store">
+  <div style="display: flex; flex-wrap: wrap !important;" *ngFor="let save of storage">
     <div id="card">
       <div id="card-content">
         <div id="card-title">
@@ -59,7 +59,7 @@
             <h6 class="padding"><SPan>Email</SPan> : {{save.email}}</h6>
           </div>
           <button class="button" (click)="edit(save.empid)"><h1><b>Edit</b></h1></button>
-          <button class="margin" (click)="delete(save.empid)"><h1><b>Delete</b></h1></button>
+          <button class="margin" (click)="delete(save._id)"><h1><b>Delete</b></h1></button>
         
         
       </div>
@@ -106,7 +106,7 @@
           <div class="modal-body">
             <div>
           
-              <form class="form" name="updatedata" #updatedata="ngForm" (ngSubmit)="update(updatedata.value);">
+              <form class="form" name="updatedata" #updatedata="ngForm" (ngSubmit)="update();">
                 <div *ngFor="let store of filterdata">
                 
                 <input type="text" name="name" placeholder="Enter your Name..." [(ngModel)]='store.name'><br>

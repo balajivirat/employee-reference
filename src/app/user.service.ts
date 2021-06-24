@@ -1,62 +1,67 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { catchError, map } from 'rxjs/operators';
-import { Observable, throwError } from 'rxjs';
-import { Employeedetails } from './employeedetails';
+import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  url = 'http://localhost:4000';
-
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json'
-    })
-  }
+  componentdata: any;
+  url = "https://mysterious-castle-20545.herokuapp.com/";
   constructor(private http: HttpClient) { }
 
-  create(values: any): Observable <Employeedetails> {
-    return this.http.post<Employeedetails>(this.url + '/employeedeteils/', JSON.stringify(values), this.httpOptions)
-    .pipe(catchError(this.errorHandler)
-      )
+  //This is to get value from the Componet to service
+  gettingvalue(value: any) {
+    console.log('service', value);
+    return this.http.post("https://mysterious-castle-20545.herokuapp.com/user", value)
+    //  return this.http.post("http://localhost:3000/user",value)
   }
-  getById(id: any): Observable<Employeedetails> {
-    return this.http.get<Employeedetails>(this.url + '/employeedeteils/' + id)
-    .pipe(catchError(this.errorHandler)
-    )
+  //This is to get value from the Nodejs server to service
+  getuser() {
+    return this
+      .http.get(`https://mysterious-castle-20545.herokuapp.com/users`).pipe(map(res => res))
+    // .http.get(`http://localhost:3000/users`).pipe(map(res => res))
   }
-  getAll(): Observable<Employeedetails[]> {
-    return this.http.get<Employeedetails[]>(this.url + '/employeedeteils/')
-    .pipe(
-      catchError(this.errorHandler)
-    )
+  postusers(value: any) {
+    return this
+      .http.post(`https://mysterious-castle-20545.herokuapp.com/gets`, value)
+    // .http.post(`http://localhost:3000/gets`,value)
   }
-  update(id: any, values: any): Observable<Employeedetails> {
-    return this.http.put<Employeedetails>(this.url + '/employeedeteils/' + id, JSON.stringify(values), this.httpOptions)
-    .pipe(
-      catchError(this.errorHandler)
-    )
+  // getusers() {    
+  //   return this
+  //     .http.get("http://localhost:3000/get").pipe(map(res => {
+  //       console.log(res);
+  //     }
+  //     ))
+  // }
+  contentgetter(value: any) {
+    return this.http.post("https://mysterious-castle-20545.herokuapp.com/content", value)
+    // return this.http.post("http://localhost:3000/content",value)
+  }
+  getcontent() {
+    return this.http.get(`https://mysterious-castle-20545.herokuapp.com/content`).pipe(map(res => res))
+    // return this.http.get(`http://localhost:3000/content`).pipe(map(res => res))
   }
 
-  delete(id: any){
-    return this.http.delete<Employeedetails>(this.url + '/employeedeteils/' + id, this.httpOptions)
-    .pipe(
-      catchError(this.errorHandler)
-    )
+  // deletecontent(id: any){
+  //   console.log('delete..............', id);
+  // return this.http.post("http://localhost:3000/delete",value)
+  //   var id = id;
+  //   return this
+  //     .http
+  //     .delete("http://localhost:3000/delete/:"+id);
+  // }
+  deletecontent(id: any) {
+    var id = id;
+    return this
+      .http
+      .delete(`${this.url}/delete/${id}`)
   }
 
-  errorHandler(error: { error: { message: string; }; status: any; message: any; }) {
-    let errorMessage = '';
-    if(error.error instanceof ErrorEvent) {
-      // Get client-side error
-      errorMessage = error.error.message;
-    } else {
-      // Get server-side error
-      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
-    }
-    console.log(errorMessage);
-    return throwError(errorMessage);
- }
+  editcontent(value: any) {
+    console.log('service edit....................', value);
+    return this.http.put("https://mysterious-castle-20545.herokuapp.com/edit", value)
+    // return this.http.put("http://localhost:3000/edit",value)
+  }
 }
